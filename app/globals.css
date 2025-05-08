@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Texto del footer para pantallas pequeñas*/
+@media (max-width: 768px) {
+  .footer-text {
+    font-size: 0.8rem; /* Tamaño de fuente más pequeño */
+  }
+}
+
+/*Card styles*/
+.card-container {
+  transition: transform 0.3s ease;
+  
+}
+
+.card-container:hover {
+  transform: translateY(-5px);
+}
+
+/*Button-Home styles*/
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 2.8rem; /* 8 (tailwind bottom-8) */
+  right: 1rem; /* 8 (tailwind right-8) */
+  padding: 0.9rem; /* Aumentar el padding para hacerlo más grande */
+  background-color: #b91c1c; /* Red-700 */
+  color: #ffffff; /* White */
+  border-radius: 0.75rem; /* Más redondeado (rounded-lg) */
+  font-size: 1rem; /* Aumentar el tamaño de la fuente */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow-lg */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-to-top-button:hover {
+  background-color: #7f1d1d; /* Red-900 */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/*Estilos para pantallas más grandes (computadores)*/
+@media (min-width: 768px) {
+  .scroll-to-top-button {
+    bottom: 2.8rem; /* Ajustar la posición en pantallas más grandes */
+    right: 2.7rem; /* Ajustar la posición en pantallas más grandes */
+    padding: 1rem; /* Aumentar el padding para hacerlo más grande */
+    border-radius: 0.75rem; /* Más redondeado (rounded-lg) */
+  }
+}
+
+/* Estilos para el contenedor de las Preguntas Frecuentes en vista computador */
+@media (min-width: 768px) {
+  .containerfq {
+    text-align: center;
+    margin-left: 24rem;
+    margin-right: 24rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+}
+
+/* Estilos para el contenedor de las Preguntas Frecuentes en vista móvil */
+@media (max-width: 768px) {
+  .containerfq {
+    text-align: left;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+}
+
+/*Desplegable Pantallas Grandes*/
+@media (min-width: 768px) {
+  .faq-button {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+}
+
+/*Desplegable Pantallas Mobiles*/
+@media (max-width: 768px) {
+  .faq-button {
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+}
+
+
+.faq-button:hover span {
+  color: rgb(188, 26, 26);
+}
+/*Pantallas Grandes*/
+@media (min-width: 768px) {
+  .containerfq .textt {
+      font-size: 1.3rem;
+  }
+
+  .containerfq .dialog {
+      font-size: 1.15rem;
+      color: rgb(89, 87, 87);
+  }
+}
+/*Pantallas Pequeñas*/
+@media (max-width: 768px) {
+  .containerfq .textt {
+      font-size: 0.95rem;
+  }
+
+  .containerfq .dialog {
+      font-size: 0.85rem; 
+      color: rgb(89, 87, 87);
+  }
+}
