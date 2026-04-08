@@ -18,11 +18,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/*Texto del footer para pantallas pequeñas*/
-@media (max-width: 768px) {
-  .footer-text {
-    font-size: 0.8rem; /* Tamaño de fuente más pequeño */
-  }
+/* Estilos para el banner inicial*/
+.top-banner {
+  background-color: #d81919; /* Red-700 */
+  color: #ffffff; /* White */
+  text-align: center;
+  padding: 0.4rem; /* Tamaño intermedio */
+  font-size: 0.75rem; /* Tamaño intermedio */
+  font-weight: 600; /* Font-semibold */
+  letter-spacing: 0.05em; /* Tracking-wider */
 }
 
 /*Card styles*/
@@ -35,16 +39,41 @@ body {
   transform: translateY(-5px);
 }
 
+/* Carousel */
+/* Estilos para el texto del carousel */
+.title-carousel {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.description-carousel {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Carousel estilos para moviles*/
+@media (max-width: 768px) {
+  .title-carousel {
+    font-size: 1.7rem;
+  }
+
+  .description-carousel {
+    font-size: 0.8rem;
+  }
+}
+
 /*Button-Home styles*/
 .scroll-to-top-button {
   position: fixed;
   bottom: 2.8rem; /* 8 (tailwind bottom-8) */
   right: 1rem; /* 8 (tailwind right-8) */
-  padding: 0.9rem; /* Aumentar el padding para hacerlo más grande */
+  padding: 0.75rem; /* Tamaño intermedio */
   background-color: #b91c1c; /* Red-700 */
   color: #ffffff; /* White */
   border-radius: 0.75rem; /* Más redondeado (rounded-lg) */
-  font-size: 1rem; /* Aumentar el tamaño de la fuente */
+  font-size: 0.9rem; /* Tamaño intermedio */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow-lg */
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -59,7 +88,7 @@ body {
   .scroll-to-top-button {
     bottom: 2.8rem; /* Ajustar la posición en pantallas más grandes */
     right: 2.7rem; /* Ajustar la posición en pantallas más grandes */
-    padding: 1rem; /* Aumentar el padding para hacerlo más grande */
+    padding: 0.8rem; /* Tamaño intermedio */
     border-radius: 0.75rem; /* Más redondeado (rounded-lg) */
   }
 }
@@ -113,7 +142,6 @@ body {
   }
 }
 
-
 .faq-button:hover span {
   color: rgb(188, 26, 26);
 }
@@ -137,5 +165,21 @@ body {
   .containerfq .dialog {
       font-size: 0.85rem; 
       color: rgb(89, 87, 87);
+  }
+}
+
+/* Estilos del footer*/
+.footer {
+  background-color: #0e0e33; /* Red-700 */
+  color: #ffffff; /* White */
+  text-align: center;
+  padding: 0.5rem; /* Tamaño intermedio */
+  font-size: 0.85rem;
+}
+
+/*Texto del footer para pantallas pequeñas*/
+@media (max-width: 768px) {
+  .footer {
+    font-size: 0.7rem; /* Tamaño de fuente más pequeño */
   }
 }

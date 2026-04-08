@@ -8,7 +8,7 @@ export default function CardServices() {
     {
         title: "Paso 1: Contactarnos",
         img: "/images/image111.png",
-        desc: "Contáctanos a través de WhatsApp, correo o nuestro formulario web para iniciar tu envío. Nuestro equipo estará encantado de asesorarte y brindarte toda la información necesaria." ,
+        desc: "Contáctanos a través de WhatsApp para iniciar tu envío. Nuestro equipo estará encantado de asesorarte y brindarte toda la información necesaria." ,
     },
     {
         title: "Paso 2: Recogida de Encomienda",
@@ -33,49 +33,23 @@ export default function CardServices() {
     ];
 
     return (
-      <div className="container mx-auto px-4 py-8">
-        {/* Primeras 3 tarjetas  OJO**Hacerlo responsivo a la hora de mostrarse en movil */}
-        <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {list.slice(0, 3).map((item, index) => (
-            <div key={index} className="card-container w-full">
-              <Card className="max-w-[800px] h-full bg-gradient-to-b from-gray-100 to-gray-200 shadow-md rounded-3xl overflow-hidden">
-                <CardHeader className="justify-between">
-                  <div className="flex gap-5">
-                    <Avatar isBordered radius="full" size="md" className="h-18 w-18" src={item.img} />
-                    <div className="flex flex-col gap-1 items-start justify-center">
-                      <h4 className="text-l font-semibold leading-none text-default">{item.title}</h4>
-                    </div>
+      <div className="container mx-auto pt-3 md:p-6 pb-4 md:pb-6">
+        <div className="mx-auto flex w-full max-w-screen-xl flex-wrap justify-center gap-4 md:gap-6">
+          {list.map((item, index) => (
+            <div key={index} className="card-container w-full max-w-sm sm:w-[46%] md:max-w-md lg:w-[32%] lg:max-w-md">
+              <Card className="w-full h-full bg-gradient-to-b from-gray-100 to-gray-200 shadow-md rounded-3xl overflow-hidden">
+                <CardHeader className="flex items-center justify-start">
+                  <Avatar radius="full" size="md" className="h-14 w-14 border-2 rounded-full border-white/100" src={item.img} />
+                  <div className="flex flex-1 flex-col justify-center">
+                    <h4 className="text-l font-semibold leading-none text-default">{item.title}</h4>
                   </div>
                 </CardHeader>
-                <CardBody className="px-5 py-0 text-default-400">
+                <CardBody className="card-ship pt-0.5 pb-4 px-6 text-default-400 text-center">
                   <p className="text-base">{item.desc}</p>
                 </CardBody>
               </Card>
             </div>
           ))}
-        </div>
-
-        {/*Ultimas 2 tarjetas - modificadas para ser más anchas y responsivas*/}
-        <div className="mt-6">
-          <div className="flex flex-col md:flex-row justify-center gap-4">
-            {list.slice(3).map((item, index) => (
-              <div key={index} className="card-container w-full md:w-[500px]">
-                <Card className="w-full h-full bg-gradient-to-b from-gray-100 to-gray-200 shadow-md rounded-3xl overflow-hidden">
-                  <CardHeader className="justify-between">
-                    <div className="flex gap-5">
-                      <Avatar isBordered radius="full" size="md" className="h-18 w-18" src={item.img} />
-                      <div className="flex flex-col gap-1 items-start justify-center">
-                        <h4 className="text-l font-semibold leading-none  text-default">{item.title}</h4>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardBody className="px-3 py-0 text-default-400">
-                    <p className="text-base">{item.desc}</p>
-                  </CardBody>
-                </Card>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     )

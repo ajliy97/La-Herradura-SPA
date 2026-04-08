@@ -28,6 +28,10 @@ const items = [
     title: "Contacto",
     href: "/#contacto",
   },
+  {
+    title: "Rastrear Envío",
+    href: "/#tracking",
+  }
 ]
 
 type MainNavProps = {
@@ -50,7 +54,6 @@ export function MainNav({ className, onClick }: MainNavProps) {
           } hover:text-red-800 transition `}
           >
               {/*"transition-colors hover:text-foreground/80 text-foreground/60"*/}
-
           {item.title}
         </Link>
       ))}

@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+        { "source": "/about", "destination": "/about.html", "type": 301},
+        { "source": "/object", "destination": "/object.html", "type": 301},
+        { "source": "/price", "destination": "/price.html", "type": 301},
+        { "source": "/question", "destination": "/question.html", "type": 301}
+    ]
+  }
+}
