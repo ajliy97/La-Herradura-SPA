@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/navbar";
 import ButtonHome from "@/components/ui/button-home";
 
 export default function About() {

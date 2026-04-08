@@ -20,11 +20,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* Top Banner info de envios*/}
+        <div className="top-banner py-1 text-xs font-semibold tracking-wider">
+          ✈️ ENVÍOS LOS MIÉRCOLES A TODA CUBA
+        </div>
         <Navbar/>
         {children}
         <footer>
-          <div className="w-full px-8 py-2 md:px-4 md:py-2 mx-auto text-center pt-2 bg-red-700 text-white footer-text">
-            2025 © La Herradura SPA | Todos los derechos reservados
+          <div className="footer h-16 flex items-center justify-center">
+            <p>&copy; {new Date().getFullYear()} La Herradura SPA | Todos los derechos reservados</p>
           </div>
         </footer>
       </body>

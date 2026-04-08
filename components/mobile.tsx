@@ -1,6 +1,6 @@
 import { Menu, X } from "lucide-react"; // para los íconos de hamburguesa y cerrar
-import { useState } from "react";
 import { MainNav } from "./main-nav";
+import { useEffect, useRef } from "react";
 
 type MobileNavProps = {
   isOpen: boolean;
@@ -11,11 +11,22 @@ type MobileNavProps = {
 
 
 export function MobileNav( {isOpen, setIsOpen, onClose }: MobileNavProps) {
+  const menuRef = useRef<HTMLDivElement>(null); // Referencia al menú desplegable
 
-  //Funcion para cerrar el menú
-  const handleCloseMenu = () => {
-    setIsOpen(false);
-  };
+  //Funcion para cerrar el menú cuando se hace click en un elemento del menú
+  const handleCloseMenu = () => setIsOpen(false);
+  
+   // Cierra el menú si se hace clic fuera del menú
+  useEffect(() => {
+    if (!isOpen) return;
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen, setIsOpen]);
 
 
   return (
@@ -29,12 +40,18 @@ export function MobileNav( {isOpen, setIsOpen, onClose }: MobileNavProps) {
 
       {/* Menú desplegable */}
       {isOpen && (
-        <div className="fixed top-14 left-0 text-sm w-full bg-white shadow-lg p-4 z-50 md:hidden">
+        <>
+          {/* Menú */}
+          <div
+            ref={menuRef}
+            className="fixed top-14 left-0 text-sm w-full bg-white shadow-lg p-4 z-50 md:hidden"
+          >
           <MainNav 
             className="flex flex-col items-start space-y-4"
             onClick={handleCloseMenu} 
           />
         </div>
+        </>
       )}
     </div>
   );
