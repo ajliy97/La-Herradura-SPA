@@ -46,7 +46,7 @@ export default function Track() {
     };
 
     return (
-        <section id="tracking" className="md:py-12 py-10 mb-6 md:mb-10">
+        <section id="tracking" className="md:py-14 py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-blue-900 rounded-[3rem] overflow-hidden p-8.5 md:p-12 flex flex-col gap-2 text-white">
                     

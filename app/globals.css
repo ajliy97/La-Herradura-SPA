@@ -183,3 +183,7 @@ body {
     font-size: 0.7rem; /* Tamaño de fuente más pequeño */
   }
 }
+
+.track-text {
+  font-size: 0.9rem; /* Tracking-wider */
+}
