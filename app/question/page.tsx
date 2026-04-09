@@ -20,7 +20,7 @@ export default function QuestionPage() {
                             <img
                                 src="/images/question.png"
                                 alt="Preguntas Frecuentes"
-                                className="w-38 md:w-45 mx-auto pt-10 pb-10"
+                                className="w-18 md:w-32 mx-auto pt-10 pb-10"
                             />
                         </div>
 

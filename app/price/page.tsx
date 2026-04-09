@@ -11,23 +11,22 @@ export default function PricePage() {
                 <ButtonHome />
                 <div className="w-full bg-gradient-to-b from-blue-900 to to-blue-950 md:items-start text-white">
                     <div className="flex flex-col md:flex-row items-center">
-                        <div className="md:w-1/2 items-center">
+                        <div className="md:w-1/2 flex flex-col items-center">
                             <img
                                 src="/images/price.png"
                                 alt="Precios de Envios"
-                                className="w-38 md:w-45 mx-auto pt-10 pb-10"
+                                className="icons-sections"
                             />
                         </div>
                     
-                        <div className="md:w-1/2 flex flex-col md:items-start text-center md:pb-12 md:pt-12 pb-10">
-                            <h1 className="md:text-5xl text-3xl">
+                        <div className="md:w-1/2 flex flex-col md:items-start text-center md:pb-12 md:pt-12 pb-4">
+                            <h1 className="text-2xl lg:text-5xl">
                                 Costos Referenciales
                                 </h1>
-                                <p className="md:text-xl text-xl">Se estima por peso real o volumétrico.</p>
+                                <p className="text-base text-gray-300">Se estima por peso real o volumétrico.</p>
                         </div>
                     </div>
                 </div>
-
                 {/* Tabla de Precios*/}
                 <TablePage/>
                 

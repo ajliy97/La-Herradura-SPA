@@ -31,7 +31,7 @@ export default function Home() {
       {/* Sección Contacto*/}
       <div id="contacto" className="footer row-start-3 flex gap-[24px] flex-wrap ">
         <div className="mx-auto pt-6 md:pt-14">
-          <div className="flex flex-col md:flex-row space-y-8 md:space-y-12 md:space-x-20 lg:space-x-120">
+          <div className="flex flex-col md:flex-row space-y-3 md:space-y-12 md:space-x-20 lg:space-x-120">
             
             {/* Sección Izquierda: Contactanos + Texto */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-md">

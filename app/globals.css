@@ -99,8 +99,8 @@ body {
     text-align: center;
     margin-left: 24rem;
     margin-right: 24rem;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
   }
 }
 
@@ -110,8 +110,8 @@ body {
     text-align: left;
     margin-left: 1rem;
     margin-right: 1rem;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -186,4 +186,59 @@ body {
 
 .track-text {
   font-size: 0.9rem; /* Tracking-wider */
+}
+
+
+/* SECCION DE ACERCA DE NOSOTROS o CONOCENOS */
+.about-icons {
+  width: 4rem; /* Tamaño intermedio */
+  height: 4rem; /* Tamaño intermedio */
+  margin-bottom: 0.5rem; /* Espacio entre la imagen y el texto */
+}
+
+.about-desc-text {
+  font-size: 0.95rem; /* Tamaño intermedio */
+  color: #dfdfdf; /* Un gris más suave para el texto descriptivo */
+  font-style: italic;
+}
+
+/* SECCION OBJETOS PROHIBIDOS */
+/* TEXTO DE LISTAS */
+.list-disc {
+  font-size: 1rem; /* Tamaño de fuente */
+  padding-left: 1.5rem; /* Espacio para las viñetas */
+  color: #000000; /* Color del texto de la lista */
+  font-style: italic;
+}
+
+.meds .list-disc {
+  color: #ffffff ;  
+}
+
+/* Esto aplica espacio a todas las listas con la clase list-disc */
+.list-disc li {
+  margin-bottom: 0.35rem; /* Esto equivale a un space-y-3 de Tailwind */
+}
+
+/* Para evitar que el último elemento tenga un margen extra innecesario */
+.list-disc li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Iconos de secciones de paginas */
+.icons-sections {
+  width: 8rem; /* Tamaño intermedio */
+  height: auto; /* Mantener la proporción de la imagen */
+  margin-top: 2rem; /* Espacio superior */
+  margin-bottom: 2rem; /* Espacio inferior */
+}
+
+@media (max-width: 768px) {
+  .icons-sections {
+    width: 4.5rem; /* Tamaño intermedio */
+    height: auto; /* Mantener la proporción de la imagen */
+    margin-top: 1rem; /* Espacio superior */
+    margin-bottom: 1rem; /* Espacio inferior */
+  }
 }
