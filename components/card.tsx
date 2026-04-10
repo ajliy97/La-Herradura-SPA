@@ -1,7 +1,5 @@
 "use client"
-import {Card, CardHeader, CardBody, CardFooter, Image, Avatar} from "@heroui/react";
-import { title } from "process";
-
+import {Card, CardHeader, CardBody} from "@heroui/react";
 
 export default function CardServices() {
     const list = [
@@ -38,8 +36,10 @@ export default function CardServices() {
           {list.map((item, index) => (
             <div key={index} className="card-container w-full max-w-sm sm:w-[46%] md:max-w-md lg:w-[32%] lg:max-w-md">
               <Card className="w-full h-full bg-gradient-to-b from-gray-100 to-gray-200 shadow-md rounded-3xl overflow-hidden">
-                <CardHeader className="flex items-center justify-start">
-                  <Avatar radius="full" size="md" className="h-14 w-14 border-2 rounded-full border-white/100" src={item.img} />
+                <CardHeader className="flex items-center justify-start gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-white/100 bg-white/90 overflow-hidden">
+                    <img src={item.img} alt={item.title} className="h-full w-full object-cover" />
+                  </div>
                   <div className="flex flex-1 flex-col justify-center">
                     <h4 className="text-l font-semibold leading-none text-default">{item.title}</h4>
                   </div>

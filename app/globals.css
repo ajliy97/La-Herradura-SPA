@@ -17,7 +17,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
+/* BANNER EN EL INICIO TOP */
 /* Estilos para el banner inicial*/
 .top-banner {
   background-color: #d81919; /* Red-700 */
@@ -39,7 +39,7 @@ body {
   transform: translateY(-5px);
 }
 
-/* Carousel */
+/* ESTILOS PARA EL CAROUSEL DE IMAGENES */
 /* Estilos para el texto del carousel */
 .title-carousel {
   font-size: 3.5rem;
@@ -63,7 +63,7 @@ body {
     font-size: 0.8rem;
   }
 }
-
+/* ESTILOS PARA EL BOTÓN DE REGRESO AL INICIO */
 /*Button-Home styles*/
 .scroll-to-top-button {
   position: fixed;
@@ -93,25 +93,35 @@ body {
   }
 }
 
-/* Estilos para el contenedor de las Preguntas Frecuentes en vista computador */
-@media (min-width: 768px) {
+/* ESTILOS PARA LA SECCION PREGUNTAS FRECUENTES */
+/* Estilos para el contenedor de las Preguntas Frecuentes en vista móvil */
+.containerfq {
+  text-align: left;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Estilos para el contenedor de las Preguntas Frecuentes en vista tablet */
+@media (min-width: 641px) {
   .containerfq {
-    text-align: center;
-    margin-left: 24rem;
-    margin-right: 24rem;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    text-align: left;
+    margin-left: 8rem;
+    margin-right: 8rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
-/* Estilos para el contenedor de las Preguntas Frecuentes en vista móvil */
-@media (max-width: 768px) {
+/* Estilos para el contenedor de las Preguntas Frecuentes en vista computador */
+@media (min-width: 1200px) {
   .containerfq {
-    text-align: left;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    text-align: center;
+    margin-left: 16rem;
+    margin-right: 16rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
   }
 }
 
@@ -145,6 +155,7 @@ body {
 .faq-button:hover span {
   color: rgb(188, 26, 26);
 }
+
 /*Pantallas Grandes*/
 @media (min-width: 768px) {
   .containerfq .textt {
@@ -168,7 +179,8 @@ body {
   }
 }
 
-/* Estilos del footer*/
+/* ESTILOS PARA LA SECCION CONTACTO + FOOTER */
+/* Estilos del footer para telefono*/
 .footer {
   background-color: #0e0e33; /* Red-700 */
   color: #ffffff; /* White */
@@ -177,9 +189,77 @@ body {
   font-size: 0.85rem;
 }
 
-/*Texto del footer para pantallas pequeñas*/
-@media (max-width: 768px) {
+/* Estilos del footer para tablet*/
+@media (min-width: 641px) {
   .footer {
-    font-size: 0.7rem; /* Tamaño de fuente más pequeño */
+    padding-left: 4rem;
+    padding-right: 4rem;
+    font-size: 0.7rem; 
+  }
+}
+
+/* Estilos del footer para computador*/
+@media (min-width: 1200px) {
+  .footer {
+    font-size: 0.9rem; 
+  }
+}
+
+.track-text {
+  font-size: 0.9rem; /* Tracking-wider */
+}
+
+
+/* SECCION DE ACERCA DE NOSOTROS o CONOCENOS */
+.about-icons {
+  width: 4rem; /* Tamaño intermedio */
+  height: 4rem; /* Tamaño intermedio */
+  margin-bottom: 0.5rem; /* Espacio entre la imagen y el texto */
+}
+
+.about-desc-text {
+  font-size: 0.95rem; /* Tamaño intermedio */
+  color: #dfdfdf; /* Un gris más suave para el texto descriptivo */
+  font-style: italic;
+}
+
+/* SECCION OBJETOS PROHIBIDOS */
+/* TEXTO DE LISTAS */
+.list-disc {
+  font-size: 1rem; /* Tamaño de fuente */
+  padding-left: 1.5rem; /* Espacio para las viñetas */
+  color: #000000; /* Color del texto de la lista */
+  font-style: italic;
+}
+
+.meds .list-disc {
+  color: #ffffff ;  
+}
+
+/* Esto aplica espacio a todas las listas con la clase list-disc */
+.list-disc li {
+  margin-bottom: 0.75rem; /* Esto equivale a un space-y-3 de Tailwind */
+}
+
+/* Para evitar que el último elemento tenga un margen extra innecesario */
+.list-disc li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ICONOS DE SECCIONES DE PAGINAS */
+.icons-sections {
+  width: 8rem; /* Tamaño intermedio */
+  height: auto; /* Mantener la proporción de la imagen */
+  margin-top: 2rem; /* Espacio superior */
+  margin-bottom: 2rem; /* Espacio inferior */
+}
+
+@media (max-width: 768px) {
+  .icons-sections {
+    width: 4.5rem; /* Tamaño intermedio */
+    height: auto; /* Mantener la proporción de la imagen */
+    margin-top: 1rem; /* Espacio superior */
+    margin-bottom: 1rem; /* Espacio inferior */
   }
 }
