@@ -22,7 +22,7 @@ export default function PricePage() {
                                 Costos Referenciales
                             </h1>
                             <p className="text-base text-gray-300">
-                                El costo se estima por peso real o volumétrico.
+                                *Esta tabla está sujeta a cambios.* <br></br> El costo se estima por peso real o volumétrico.
                             </p>
                         </div>
                     </div>
