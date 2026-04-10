@@ -217,7 +217,7 @@ body {
 
 /* Esto aplica espacio a todas las listas con la clase list-disc */
 .list-disc li {
-  margin-bottom: 0.35rem; /* Esto equivale a un space-y-3 de Tailwind */
+  margin-bottom: 0.75rem; /* Esto equivale a un space-y-3 de Tailwind */
 }
 
 /* Para evitar que el último elemento tenga un margen extra innecesario */

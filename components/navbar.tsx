@@ -18,7 +18,7 @@ export function Navbar() {
 
     return (
         <header 
-            className="md:sticky top-0 relative z-50 w-full border-0 bg-white/60 transition-all duration-300 ease-in-out supports-[backdrop-filter]:backdrop-blur-md ">
+            className="md:sticky top-0 relative z-50 w-full md:border-b-1 md:border-gray-200 bg-white/60 transition-all duration-300 ease-in-out supports-[backdrop-filter]:backdrop-blur-md ">
             {/*h-16 margenes del navbar, margenes drcha e izq: px- telefono, xl:-px- computador, md:sticky solo para la version de computador*/}
             <div className="container flex md:h-18 h-16 items-center px-2 lg:px-8 xl:px-10">
             
