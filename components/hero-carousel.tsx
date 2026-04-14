@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -28,86 +28,102 @@ const slides = [
   },
 ]
 
+const AUTOPLAY_INTERVAL = 2000
+
 export function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))
-    }, 5000)
-
-    return () => clearInterval(interval)
+  const next = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length)
   }, [])
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))
-  }
+  const prev = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+  }, [])
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))
-  }
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
+  useEffect(() => {
+    if (isPaused) return
+    const interval = setInterval(next, AUTOPLAY_INTERVAL)
+    return () => clearInterval(interval)
+  }, [isPaused, next])
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div
+      className="relative w-full overflow-hidden h-[280px] sm:h-[400px] md:h-[520px] lg:h-[600px]"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      aria-roledescription="carrusel"
+      aria-label="Servicios de envío"
+    >
+      {/* Slides */}
       <div
-        className="flex transition-transform duration-700 ease-in-out h-[300px] md:h-[600px]"
+        className="flex h-full transition-transform duration-500 ease-out will-change-transform"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
-        {slides.map((slide) => (
-          <div key={slide.id} className="w-full flex-shrink-0 relative h-[300px] md:h-[600px]">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className="w-full flex-shrink-0 relative h-full"
+            aria-hidden={currentSlide !== index}
+            role="group"
+            aria-roledescription="diapositiva"
+            aria-label={`${index + 1} de ${slides.length}: ${slide.title}`}
+          >
             {/* Gradiente de fondo */}
             <div className={`absolute inset-0 bg-gradient-to-r ${slide.color} opacity-80 z-10`} />
 
             {/* Imagen */}
             <img
               src={slide.image}
-              alt={slide.title}
-              className="object-cover w-full h-full absolute inset-0 z-0"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover z-0"
+              loading={index === 0 ? "eager" : "lazy"}
             />
-            {/* Overlay oscuro*/}
+
+            {/* Overlay oscuro */}
             <div className="absolute inset-0 bg-black/55 z-10" />
 
-            {/* Contenido del slide */}
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white p-18 gap-2 md:gap-3 text-center">
-              <h3 className="title-carousel">{slide.title}</h3>
-              <p className="description-carousel">{slide.description}</p>
+            {/* Contenido */}
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white text-center px-6 sm:px-12 md:px-24 gap-2 md:gap-4">
+              <h2 className="title-carousel">{slide.title}</h2>
+              <p className="description-carousel max-w-xl">{slide.description}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Flechas de navegación */}
+      {/* Flechas */}
       <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full"
+        onClick={prev}
+        className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-black/50 text-white p-1.5 sm:p-2 rounded-full transition-colors duration-150"
         aria-label="Slide anterior"
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
       </button>
 
       <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full"
+        onClick={next}
+        className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-black/50 text-white p-1.5 sm:p-2 rounded-full transition-colors duration-150"
         aria-label="Siguiente slide"
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
       </button>
 
       {/* Indicadores */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex space-x-2">
+      <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => goToSlide(index)}
-            className={cn(
-              "w-2.5 h-2.5 rounded-full transition-colors",
-              currentSlide === index ? "bg-white" : "bg-white/50 hover:bg-white/75"
-            )}
+            onClick={() => setCurrentSlide(index)}
             aria-label={`Ir al slide ${index + 1}`}
+            aria-current={currentSlide === index}
+            className={cn(
+              "rounded-full transition-all duration-300",
+              currentSlide === index
+                ? "bg-white w-5 h-2.5"
+                : "bg-white/50 hover:bg-white/75 w-2.5 h-2.5"
+            )}
           />
         ))}
       </div>
